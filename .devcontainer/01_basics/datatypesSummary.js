@@ -59,3 +59,24 @@ console.log(typeof myFun); //returns function object
 //        Function  =>  function
 //        Object  =>  object
 
+//######################################################
+
+// Stack Memory is used for Primitive data type -- > you get a copy
+// Heap Memory is used for Non Primitive data type -- > you get a reference
+
+let myNormalName = "NandiniSatpathy"
+
+let anotherName= myNormalName
+
+anotherName = "Putli"
+
+console.log(anotherName);
+console.log(myNormalName);
+
+let user = {
+    email:"nan@gmail.com",
+    upi:"nan@okicici"
+}
+
+let user2 = user
+console.log(user2.email);
