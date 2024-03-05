@@ -65,3 +65,100 @@ let score2 = 200
 let score3 = 300
 
 console.log(Array.of(score1, score2, score3)); //make an array
+
+//############# high order array #############
+//["","",""]
+//[{},{},{}]
+
+const arr = [23,34,45]
+
+for (const num of arr){
+  console.log(num);
+}
+
+const greetings = "Hello World!" 
+for(const greet of greetings){
+    console.log(`Each char is ${greet}`);
+}
+
+
+//Maps - kv pair, insertion order of keys is maintained, no dups
+
+const map = new Map();
+map.set('IN','india')
+map.set('AUS', 'asutraila')
+map.set('US','america')
+
+
+for(const [key,value] of map.keys){ // for of, map is not iteratable so we use for of, for in wont work
+    console.log(key, ':-', value);
+}
+
+let myObject = {
+   'game1' : 'NFS',
+   'game2' :'Ludo',
+   'game3' : 'kabbadi',
+   'game4' : 'kho kho'
+}
+ //for(const [key,value] of myObject){ this will no work for object
+    //console.log(key, ':-', value);
+//}
+
+for(const key in myObject){ // for in
+    console.log(`Game key - ${key} is for ${myObject[key]}`);
+}
+
+const proLan = ["java","python","swift","scala"]
+
+for(const key in proLan){
+    console.log(key); //here we will get all indexes, this is the key for an array
+    console.log(proLan(key));
+}
+
+const proLan1 = ["java","python","swift","scala","kotlin"]
+
+proLan1.forEach( function (value) {
+  console.log(value);
+})
+
+//**********another way***************/
+
+proLan1.forEach( (item) => {
+  console.log(item);
+})
+
+//**********another way*************/
+function printMe(item) {
+    console.log(item);
+}
+
+proLan1.forEach(printMe) // we are not executing printMe, we are giving just reference 
+
+proLan1.forEach((item, index, arr) => {
+   console.log(item, index, arr);
+})
+
+const myCoding = [
+    {
+        language : "javascript",
+        languageFileName : "js"
+    },
+    {
+        language : "java",
+        languageFileName : "java"
+    },
+    {
+        language : "python",
+        languageFileName : "py"
+    },
+    {
+        language : "kotlin",
+        languageFileName : "kot"
+    }
+]
+
+myCoding.forEach( (item) => {
+  console.log(item.language);
+  console.log(item.languageFileName);
+})
+

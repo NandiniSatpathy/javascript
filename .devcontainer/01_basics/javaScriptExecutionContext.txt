@@ -1,0 +1,44 @@
+1) {} -> Global execution context (ec) starts, this (keyword) holds GEC
+2) JS is single threaded, inside everything is a process
+3) {} -> GEC -> this
+4) Global execution context -> Function execution context -> Eval execution context(property of global object)
+
+GEC :
+1) memory creation phase / CREATION PHASE, whatever varaibles are declared, memory is allocated for it. no execution occurs here
+2) EXECUTION phase, execution occurs here
+
+ex: 
+
+let val1 = 9
+let val2  = 10
+
+function add2num(num1, num2){
+    let result = num1+num2
+    return result
+}
+
+let sum1 = add2num(val1, val2)
+let sum2 = add2num(5,6)
+
+step 1: Global execution/environment  -> this
+step 2: memory creation phase, all variabes are collected and kept
+val1 will hold undefined, val2 will hold undefined during memory creation phase
+add2num will hold definition (line 16,17)
+sum1 and sum2 wil hold undefined
+
+step 3: execution phase, val1 = 9, val2 = 10
+add2num will not do anything as there is nothing to execute
+at add2num() line 20 and 21, it creates new variable env + execution thread (like a sandbox), 
+
+  step 3 (i) : again memory phase is created val1 = undefined and val2 = undefined, result = undefined
+  step 3(ii) : execution phase -> num1 = 9, num2 = 10, result = 19, this result is returned to global execution context
+  step3 (iii): the new variable env + execution thread (like a sandbox) which was created earlier is then deleted after result is returned
+
+step 4 : new variable environment (line no. 21), again all the steps listed in step 3 will get exected 
+
+Call stack : |          | once two() is done it will be removed from the call stack, here one() is calling two() 
+             |   Two()  |
+             |   One()  |
+             ------------
+             | GEC      |
+             _____________
