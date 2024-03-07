@@ -1,1 +1,35 @@
 DOM - Document Object Model
+console.log(window)
+console.log(window.document) = console.log(document)
+console.dir(document)
+
+                                    ----------
+                                    | Window |
+                                    ----------
+                                        |
+                                    ----------
+                                    |Document|
+                                    ----------
+                                        |
+                                    ----------
+                                    |  HTML  |
+                                    ----------
+                                    /        \
+                        ----------           -----------
+                        | HEAD   |           |  BODY   |
+                        ----------           ------------
+                        /  \                      |
+                     TITLE   META            ------------                       //ALSO CALLED AS NODE  
+                    /          \             |   DIV     |
+            text node          attribute     -------------
+                                               /        \
+                                   attribute -h1         p
+                                              /           \
+                                         text node         text node
+
+
+console.log(document.baseURI)
+console.log(document.links) //html collections are not array, we cannot access its properties of array
+console.log(document.links[2]) //gives the second link
+
+document.getElementById('firstHeading').innerHTML = "<h1>Chai aur code<h1>"
